@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Best Plumbers in Durham, NC | Acme Plumbing Co.</title>
+  <meta name="description" content="Acme Plumbing Co. provides plumbing services in Durham, Chapel Hill, The Triangle &amp; beyond. 4th generation family plumbers with deep roots in our local community!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #c33a32;
+      --brand-dark: #a02e28;
+      --bg: #0d0d0d;
+      --bg-card: #161616;
+      --bg-section: #111111;
+      --text: #f0f0f0;
+      --text-muted: #aaaaaa;
+      --border: #2a2a2a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none; color: var(--text);
+      font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em;
+    }
+    .nav-logo .accent { color: var(--brand); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color .2s; }
+    .nav-links a:hover { color: var(--brand); }
+    .nav-cta {
+      background: var(--brand); color: #fff; border: none; cursor: pointer;
+      padding: 0.55rem 1.3rem; border-radius: 6px; font-weight: 700; font-size: 0.9rem;
+      text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--brand-dark); }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a0a09 50%, #0d0d0d 100%);
+      padding: 5rem 2rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 70% 50%, rgba(195,58,50,0.08) 0%, transparent 70%);
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+      position: relative; z-index: 1; width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(195,58,50,0.12); border: 1px solid rgba(195,58,50,0.3);
+      color: var(--brand); padding: 0.3rem 0.8rem; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900; line-height: 1.08; letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--brand); font-style: normal; }
+    .hero p {
+      font-size: 1.1rem; color: var(--text-muted); max-width: 480px;
+      margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--brand); color: #fff;
+      padding: 0.85rem 2rem; border-radius: 8px;
+      font-weight: 700; font-size: 1rem; text-decoration: none;
+      transition: background .2s, transform .15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--text); border: 1.5px solid var(--border);
+      padding: 0.85rem 2rem; border-radius: 8px;
+      font-weight: 700; font-size: 1rem; text-decoration: none;
+      transition: border-color .2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--brand); color: var(--brand); }
+
+    /* HERO WIDGET PANEL */
+    .hero-widget {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(195,58,50,0.12);
+    }
+    .hero-widget-header {
+      background: var(--brand);
+      padding: 1rem 1.5rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .hero-widget-header span { font-weight: 700; color: #fff; font-size: 0.95rem; }
+    .widget-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+    .widget-dot.live { background: #4ade80; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* STATS */
+    .stats {
+      background: var(--bg-section);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem;
+    }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; text-align: center;
+    }
+    .stat-number { font-size: 2.5rem; font-weight: 900; color: var(--brand); letter-spacing: -0.03em; }
+    .stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; margin-top: 0.25rem; }
+
+    /* SERVICES */
+    .services { padding: 6rem 2rem; background: var(--bg); }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-tag {
+      display: inline-block; background: rgba(195,58,50,0.1); color: var(--brand);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 4px; margin-bottom: 1rem;
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; letter-spacing: -0.025em;
+    }
+    .section-header p { color: var(--text-muted); font-size: 1rem; max-width: 480px; margin: 0.75rem auto 0; }
+    .services-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem;
+      transition: border-color .2s, transform .2s;
+    }
+    .service-card:hover { border-color: var(--brand); transform: translateY(-3px); }
+    .service-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: rgba(195,58,50,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1.2rem;
+    }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* WHY US */
+    .why { padding: 6rem 2rem; background: var(--bg-section); }
+    .why-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+    .why-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .why-check {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--brand); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px; font-size: 0.75rem;
+    }
+    .why-item-text h4 { font-weight: 700; margin-bottom: 0.2rem; }
+    .why-item-text p { font-size: 0.9rem; color: var(--text-muted); }
+    .why-cta-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.5rem; text-align: center;
+    }
+    .why-cta-box h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+    .why-cta-box p { color: var(--text-muted); margin-bottom: 1.8rem; }
+    .phone-link {
+      display: block; font-size: 2rem; font-weight: 900;
+      color: var(--brand); text-decoration: none; margin-bottom: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials { padding: 6rem 2rem; background: var(--bg); }
+    .testimonials-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.8rem;
+    }
+    .stars { color: #f59e0b; font-size: 1rem; margin-bottom: 1rem; letter-spacing: 2px; }
+    .testimonial-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.2rem; }
+    .testimonial-author { font-weight: 700; font-size: 0.9rem; }
+    .testimonial-location { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: var(--brand);
+      padding: 4rem 2rem; text-align: center;
+    }
+    .cta-strip h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 900; color: #fff; margin-bottom: 0.8rem; }
+    .cta-strip p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; }
+    .btn-white {
+      background: #fff; color: var(--brand);
+      padding: 0.85rem 2.2rem; border-radius: 8px;
+      font-weight: 800; font-size: 1rem; text-decoration: none;
+      display: inline-block; transition: opacity .2s;
+    }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      background: #080808; border-top: 1px solid var(--border);
+      padding: 3rem 2rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
+      margin-bottom: 2rem;
+    }
+    .footer-brand p { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.8rem; max-width: 280px; }
+    .footer-col h4 { font-weight: 700; margin-bottom: 1rem; font-size: 0.9rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.5rem; }
+    .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+    .footer-col a:hover { color: var(--brand); }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      border-top: 1px solid var(--border); padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .why-inner { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="accent">Acme</span>&nbsp;Plumbing
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:9197898995" class="nav-cta">Call (919) 789-8995</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">
+          <span class="widget-dot live"></span>
+          4th Generation · Est. 1947
+        </div>
+        <h1>Durham's Most<br>Trusted <em>Plumbers</em></h1>
+        <p>Acme Plumbing Co. has served Durham, Chapel Hill, and The Triangle for over 75 years. Expert residential &amp; commercial plumbing, drain cleaning, and sewer repair.</p>
+        <div class="hero-actions">
+          <a href="tel:9197898995" class="btn-primary">Call Now: (919) 789-8995</a>
+          <a href="#services" class="btn-secondary">View Services</a>
+        </div>
+      </div>
+      <div class="hero-widget">
+        <div class="hero-widget-header">
+          <span class="widget-dot live"></span>
+          <span>Talk to Us Instantly</span>
+        </div>
+        <iframe
+          src="https://widget-acmeplumbing.vercel.app"
+          style="width:100%;height:420px;border:none;display:block;"
+          title="Acme Plumbing Voice Assistant"
+          allow="microphone"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-number">75+</div>
+        <div class="stat-label">Years in Business</div>
+      </div>
+      <div>
+        <div class="stat-number">4th</div>
+        <div class="stat-label">Generation Family</div>
+      </div>
+      <div>
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Emergency Service</div>
+      </div>
+      <div>
+        <div class="stat-number">5★</div>
+        <div class="stat-label">Google Reviews</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <div class="section-tag">What We Do</div>
+      <h2>Complete Plumbing Services</h2>
+      <p>From routine maintenance to emergency repairs, we handle it all.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Residential Plumbing</h3>
+        <p>Faucet repairs, water heater installation, pipe replacement, and complete home plumbing solutions.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Commercial Plumbing</h3>
+        <p>Full-service commercial plumbing for offices, restaurants, and multi-unit buildings throughout The Triangle.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚿</div>
+        <h3>Drain Cleaning</h3>
+        <p>Professional drain cleaning and hydro-jetting to clear blockages and restore proper flow.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Sewer Repair</h3>
+        <p>Camera inspection and sewer line repair or replacement with minimal disruption to your property.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">♨️</div>
+        <h3>Water Heaters</h3>
+        <p>Traditional and tankless water heater installation, repair, and maintenance for maximum efficiency.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚨</div>
+        <h3>Emergency Plumbing</h3>
+        <p>24/7 emergency response for burst pipes, severe leaks, and other urgent plumbing crises.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="why-inner">
+      <div>
+        <div class="section-tag">Why Acme</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-0.025em;margin-bottom:2rem;">
+          Durham's Plumbers<br>Since <em style="color:var(--brand);font-style:normal;">1947</em>
+        </h2>
+        <ul class="why-list">
+          <li class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-item-text">
+              <h4>Licensed &amp; Insured</h4>
+              <p>Fully licensed North Carolina plumbers with comprehensive insurance coverage.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-item-text">
+              <h4>Upfront Pricing</h4>
+              <p>No surprises. We give you a clear estimate before any work begins.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-item-text">
+              <h4>Same-Day Service</h4>
+              <p>Most service calls completed same day. Emergency response available 24/7.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-item-text">
+              <h4>Community Roots</h4>
+              <p>4th generation local family business. We know Durham because we live here too.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="why-cta-box" id="contact">
+        <h3>Ready to Get Started?</h3>
+        <p>Call us or chat with our AI assistant — we're here to help right now.</p>
+        <a href="tel:9197898995" class="phone-link">(919) 789-8995</a>
+        <a href="tel:9197898995" class="btn-primary" style="width:100%;text-align:center;display:block;">Schedule Service</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="reviews">
+    <div class="section-header">
+      <div class="section-tag">Reviews</div>
+      <h2>What Customers Say</h2>
+      <p>Hundreds of 5-star reviews across Durham, Chapel Hill, and The Triangle.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Acme came out the same day my water heater died. Installed a new one in a few hours. Professional, clean, and priced fairly. Highly recommend!"</p>
+        <div class="testimonial-author">Sarah M.</div>
+        <div class="testimonial-location">Durham, NC</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"I've used Acme for years. They always show up on time, explain everything clearly, and their work is top notch. A true family business you can trust."</p>
+        <div class="testimonial-author">James K.</div>
+        <div class="testimonial-location">Chapel Hill, NC</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Had a burst pipe emergency at 2am. Acme was there within the hour. Couldn't have asked for better service. These guys are the real deal."</p>
+        <div class="testimonial-author">Rachel T.</div>
+        <div class="testimonial-location">Carrboro, NC</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <h2>Plumbing Emergency? We're Ready.</h2>
+    <p>Available 24/7 for urgent plumbing problems throughout The Triangle.</p>
+    <a href="tel:9197898995" class="btn-white">Call (919) 789-8995 Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div style="font-weight:800;font-size:1.1rem;"><span style="color:var(--brand)">Acme</span> Plumbing</div>
+        <p>4th generation family plumbers serving Durham, Chapel Hill, and The Triangle since 1947.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Residential</a></li>
+          <li><a href="#services">Commercial</a></li>
+          <li><a href="#services">Drain Cleaning</a></li>
+          <li><a href="#services">Sewer Repair</a></li>
+          <li><a href="#services">Water Heaters</a></li>
+          <li><a href="#services">Emergencies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:9197898995">(919) 789-8995</a></li>
+          <li><a href="#contact">Schedule Service</a></li>
+          <li><a href="#why">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Acme Plumbing Co. · Durham, NC · License #&nbsp;NC-12345</p>
+      <p>Serving Durham · Chapel Hill · Carrboro · The Triangle</p>
+    </div>
+  </footer>
+
+</body>
+</html>
